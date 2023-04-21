@@ -1,0 +1,7 @@
+1. strtok()
+require: #include<string.h>
+syntax: char* strtok(char * str,const char * delim)
+using when split string in to substring. Each time, replace the first char in str which is be include in delim with "\0". 
+Return the address of the str  before char been replaced.
+after strtok(), using strtok(NULL,delim) to continue split string.
+delim can be string. function will replace the first chr which is in delim.
