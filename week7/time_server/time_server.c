@@ -126,7 +126,7 @@ int main(int argc, char* argv[])
         pthread_create(&thread_id, NULL, threadProcessing, &clientSocket);
         pthread_detach(thread_id);
     }
-
+    sleep(10);
     // Close
     close(serverSocket);
     printf("Socket closed\n");
