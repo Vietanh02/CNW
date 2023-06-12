@@ -37,7 +37,7 @@ void *preThreading(void *arg)
         buff[ret] = 0;
         printf("Receive from %s:%d\n%s\n",inet_ntoa(clientAddr.sin_addr), ntohs(clientAddr.sin_port), buff);
 
-        char *message = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<html><body><h1>Hello world!</h1></body></html>";
+        char *message = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: 47\r\nConnection: close\r\n\r\n<html><body><h1>Hello world!</h1></body></html>";
         send(clientSocket, message, strlen(message), 0);
         close(clientSocket);
     }
