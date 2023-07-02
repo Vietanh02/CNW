@@ -211,12 +211,12 @@ void *client_thread(void *param)
 
         char *message = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nConnection: close\r\n\r\n<html>";
         send(clientSocket, message, strlen(message), 0);
-        sprintf(buff, "<h1><a style=\"font-weight:900;color:#00008B\" href=\"http://localhost:%d\">.</a></h1>", port);
+        sprintf(buff, "<h1><a  href=\"http://localhost:%d\">.</a></h1>", port);
         send(clientSocket, buff, strlen(buff), 0);
         char *tmp;
         if ((tmp = getParentPath(cwd)) != NULL)
         {
-            sprintf(buff, "<h1><a style=\"font-weight:900;color:#00008B\" href=\"http://localhost:%d/get?dir=%s\">..</a></h1>", port, tmp);
+            sprintf(buff, "<h1><a  href=\"http://localhost:%d/get?dir=%s\">..</a></h1>", port, tmp);
             send(clientSocket, buff, strlen(buff), 0);
         }
 
@@ -226,12 +226,12 @@ void *client_thread(void *param)
             {
                 if (entry->d_type == DT_REG)
                 {
-                    sprintf(buff, "<h1><i><a style=\"font-weight:100;color:#00d2ff\" href=\"http://localhost:%d/get?file=%s/%s\">%s</a></i></h1>", port, cwd, entry->d_name, entry->d_name);
+                    sprintf(buff, "<h1><i><a  href=\"http://localhost:%d/get?file=%s/%s\">%s</a></i></h1>", port, cwd, entry->d_name, entry->d_name);
                     send(clientSocket, buff, strlen(buff), 0);
                 }
                 else
                 {
-                    sprintf(buff, "<h1><a style=\"font-weight:900;color:#00008B\" href=\"http://localhost:%d/get?dir=%s/%s\">%s</a></h1>", port, cwd, entry->d_name, entry->d_name);
+                    sprintf(buff, "<h1><a  href=\"http://localhost:%d/get?dir=%s/%s\">%s</a></h1>", port, cwd, entry->d_name, entry->d_name);
                     send(clientSocket, buff, strlen(buff), 0);
                 }
             }
