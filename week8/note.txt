@@ -1,0 +1,6 @@
+note file 
+There are several ways to attack OTP. One of these is attacking to integrity. 
+For example, Let imagine we have a message M ("Hello Bob") send from Alice to Bob. 
+As Alice want send message in security, Alice will set a Key K with Bob (l"5ecEr3tKEY", length of K is the same as M) after that the message will be applied OTP and send Cipher-text to Bob. 
+Now, we are Eva who want to change the massage M, cause of OTP algorithm, we can only change message in to equal length massage. 
+Suppose that we want to change message into "From: Eve". Let look inside Algorithm:
